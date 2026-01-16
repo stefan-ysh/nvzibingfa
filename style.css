@@ -100,6 +100,12 @@ body {
     align-items: center;
     gap: 10px;
     z-index: 1; /* Ensure content is above blobs */
+    transition: max-width 0.4s ease; /* Smooth transition for width change */
+}
+
+/* Adaptive Width for Book Mode on Desktop */
+body.book-mode-active .main-container {
+    max-width: 1200px;
 }
 
 header {
