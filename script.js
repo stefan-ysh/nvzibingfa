@@ -52,23 +52,28 @@ const flashcardsData = [
   },
   {
     "q": "有妇之夫的诱惑，通常是从暴露妻子的什么缺点开始的？",
-    "a": "从数落妻子的缺点开始。 在公共场合应该如何应对骚扰？,要端庄大方。"
+    "a": "从数落妻子的缺点开始。 在公共场合应该如何应对骚扰？,要端庄大方。",
+    "image": "flashcard_temptation_warning_illustration_1768568395464.png"
   },
   {
     "q": "在舞厅等娱乐场所，除了正常的跳舞邀请外，还应该拒绝什么？",
-    "a": "不要随便接受陌生男性跳舞之外的邀请。"
+    "a": "不要随便接受陌生男性跳舞之外的邀请。",
+    "image": "flashcard_social_boundaries_illustration_1768568424205.png"
   },
   {
     "q": "为了防止和回击性侵害，书中建议避免去哪些地方？",
-    "a": "避开易发生性犯罪的偏僻、阴暗场所。"
+    "a": "避开易发生性犯罪的偏僻、阴暗场所。",
+    "image": "flashcard_safety_avoidance_illustration_1768568447565.png"
   },
   {
     "q": "女性最佳防卫时机，应该选择在罪犯心理尚未达到什么状态时？",
-    "a": "尚未达到临界点时。"
+    "a": "尚未达到临界点时。",
+    "image": "flashcard_defense_timing_illustration_1768568466719.png"
   },
   {
     "q": "在正面受到袭击时，应该注重什么，才能使攻击事半功倍？",
-    "a": "攻击要害部位。"
+    "a": "攻击要害部位。",
+    "image": "flashcard_vital_strike_illustration_1768568483535.png"
   },
   {
     "q": "当侧面受到袭击时，可用同侧的脚踹击对方的什么部位？",
