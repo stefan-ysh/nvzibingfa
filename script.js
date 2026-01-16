@@ -2,43 +2,53 @@
 const flashcardsData = [
   {
     "q": "在生物学上，女性与男性相比谁更强？",
-    "a": "女性在生物学上比男人强。"
+    "a": "女性在生物学上比男人强。",
+    "image": "flashcard_strength_illustration_1768566673331.png"
   },
   {
     "q": "《女子兵法》认为，在心理学上，女性与男性相比谁更强？",
-    "a": "女性在心理学上比男人强。"
+    "a": "女性在心理学上比男人强。",
+    "image": "flashcard_psychology_illustration_1768567546728.png"
   },
   {
     "q": "在对抗生命和生活的危机上，哪一性别被认为更强？",
-    "a": "女性在对抗生命和生活的危机上比男人强。"
+    "a": "女性在对抗生命和生活的危机上比男人强。",
+    "image": "flashcard_resilience_illustration_1768567562822.png"
   },
   {
     "q": "在平均智商方面，女性与男性相比如何？",
-    "a": "女性的平均智商不比男人差。"
+    "a": "女性的平均智商不比男人差。",
+    "image": "flashcard_intellect_illustration_1768567577059.png"
   },
   {
     "q": "《女子兵法》提出的成为成熟女孩的一个核心观念是，不要把自己当成_____的轴心。",
-    "a": "地球"
+    "a": "地球",
+    "image": "flashcard_world_center_illustration_1768567589752.png"
   },
   {
     "q": "在培养吸引人的特色方面，书中提到的第一个特征是什么？",
-    "a": "有生活感。"
+    "a": "有生活感。",
+    "image": "flashcard_living_sense_illustration_1768567675488.png"
   },
   {
     "q": "与男性交往时，当被男人赞美时，女性应该有什么样的自我认知？",
-    "a": "被男人赞美时要有自知之明。"
+    "a": "被男人赞美时要有自知之明。",
+    "image": "flashcard_self_awareness_illustration_1768567690739.png"
   },
   {
     "q": "《女子兵法》建议如何对待有妇之夫献殷勤时的问候？",
-    "a": "向他太太问好。 "
+    "a": "向他太太问好。 ",
+    "image": "flashcard_boundaries_illustration_1768567706116.png"
   },
   {
     "q": "书中建议，温柔是女性的什么？",
-    "a": "武器。"
+    "a": "武器。",
+    "image": "flashcard_gentleness_illustration_1768567726684.png"
   },
   {
     "q": "《女子兵法》认为，哪种看似任性的行为有时反而可免于窘困？",
-    "a": "大发娇嗔。 对于“爱情骗子”多会找什么样的女性？,找家有财产的女性。"
+    "a": "大发娇嗔。 对于“爱情骗子”多会找什么样的女性？,找家有财产的女性。",
+    "image": "flashcard_playful_defense_illustration_1768567742301.png"
   },
   {
     "q": "有妇之夫的诱惑，通常是从暴露妻子的什么缺点开始的？",
@@ -4012,6 +4022,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const shuffleBtn = document.getElementById('shuffle-btn');
+    const cardImage = document.getElementById('card-image');
 
     // DOM Elements - Quiz
     const quizQuestionEl = document.getElementById('quiz-question');
@@ -4165,26 +4176,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
     function updateCardContent() {
         if (flashcardsData.length === 0) {
             flashcardSection.classList.add('no-results-mode');
             questionText.textContent = "未找到符合条件的闪卡";
             answerText.textContent = "请尝试更换关键词或重新选择篇章";
             cardCurrentIdxEl.textContent = 0;
+            if (cardImage) cardImage.classList.add('hidden');
             return;
         }
         
         flashcardSection.classList.remove('no-results-mode');
         
         const item = flashcardsData[cardIndex];
+        
+        // Image Handling
+        if (item.image && cardImage) {
+            cardImage.src = item.image;
+            cardImage.classList.remove('hidden');
+        } else if (cardImage) {
+            cardImage.classList.add('hidden');
+        }
+
         questionText.style.opacity = 0;
         answerText.style.opacity = 0;
+        if (cardImage) cardImage.style.opacity = 0;
+
         setTimeout(() => {
             questionText.textContent = item.q;
             answerText.textContent = item.a;
             cardCurrentIdxEl.textContent = cardIndex + 1;
+            
             questionText.style.opacity = 1;
             answerText.style.opacity = 1;
+            if (cardImage) cardImage.style.opacity = 1;
         }, 200);
     }
 

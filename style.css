@@ -300,6 +300,21 @@ h1 {
     gap: 20px;
 }
 
+#card-image {
+    max-width: 100%;
+    max-height: 180px; /* Constrain height */
+    width: auto;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+#card-image.hidden {
+    display: none;
+}
+
 .label {
     font-size: 0.8rem;
     text-transform: uppercase;
