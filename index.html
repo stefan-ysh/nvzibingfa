@@ -35,48 +35,95 @@
         </header>
 
         <nav class="mode-switcher">
-            <button class="mode-btn active" data-mode="flashcard">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-                学习模式
-            </button>
-            <button class="mode-btn" data-mode="quiz">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                </svg>
-                挑战模式
-            </button>
-            <button class="mode-btn" data-mode="book">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                </svg>
-                书籍内容
-            </button>
+            <button class="mode-btn active" data-mode="flashcard">学习模式</button>
+            <button class="mode-btn" data-mode="quiz">挑战模式</button>
+            <button class="mode-btn" data-mode="book">书籍内容</button>
         </nav>
 
         <div id="flashcard-section">
-            <!-- ... -->
+
+            <div class="card-scene">
+                <div class="card" id="flashcard">
+                    <div class="card-face card-front">
+                        <div class="card-content">
+                            <span class="label">问题</span>
+                            <h2 id="question-text">加载中...</h2>
+                            <div class="hint">点击翻转查看答案</div>
+                        </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-content">
+                            <span class="label">答案</span>
+                            <h2 id="answer-text">...</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn-icon" id="prev-btn" title="上一个 (←)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="progress-display">
+                    <span id="current-index">1</span> / <span id="total-count">--</span>
+                </div>
+
+                <button class="btn-icon" id="next-btn" title="下一个 (→)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-primary" id="shuffle-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="margin-right:8px">
+                        <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l5 5M4 4l5 5" />
+                    </svg>
+                    随机抽取
+                </button>
+            </div>
+
+            <footer>
+                <p>按 <strong>空格键</strong> 翻转 • 按 <strong>左右方向键</strong> 切换</p>
+            </footer>
         </div>
 
-        <!-- ... -->
+        <div id="quiz-section" class="hidden">
+            <div class="quiz-card">
+                <div class="quiz-header">
+                    <span class="quiz-progress">问题 <span id="quiz-current">1</span> / <span
+                            id="quiz-total">--</span></span>
+                    <span class="quiz-score">得分: <span id="score-val">0</span></span>
+                </div>
+
+                <h2 id="quiz-question">问题加载中...</h2>
+                <p class="quiz-hint" id="quiz-hint"></p>
+
+                <div class="quiz-options" id="quiz-options">
+                    <!-- Options injected here -->
+                </div>
+
+                <div class="quiz-feedback hidden" id="quiz-feedback">
+                    <div class="feedback-status" id="feedback-status"></div>
+                    <div id="auto-next-container" class="auto-next-container hidden">
+                        <div id="auto-next-progress" class="auto-next-progress"></div>
+                    </div>
+                    <p class="feedback-rationale" id="feedback-rationale"></p>
+                    <button class="btn-primary" id="quiz-next-btn">下一题</button>
+                    <button class="btn-primary hidden" id="quiz-restart-btn">重新挑战</button>
+                </div>
+            </div>
+        </div>
 
         <div id="book-section" class="hidden">
             <div class="book-container">
                 <aside class="book-toc" id="book-toc">
-                    <h3>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; vertical-align: bottom;">
-                            <line x1="8" y1="6" x2="21" y2="6"></line>
-                            <line x1="8" y1="12" x2="21" y2="12"></line>
-                            <line x1="8" y1="18" x2="21" y2="18"></line>
-                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                        </svg>
-                        目录
-                    </h3>
+                    <h3>目录</h3>
                     <ul id="toc-list">
                         <!-- TOC items will be injected -->
                     </ul>
@@ -91,10 +138,6 @@
                         </button>
                         <h2 id="book-title">请从目录选择篇章</h2>
                         <div class="book-meta">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: text-bottom;">
-                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-                                <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                            </svg>
                             <span id="book-chapter"></span>
                         </div>
                         <div id="book-text" class="article-body">

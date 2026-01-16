@@ -154,60 +154,6 @@ h1 {
     background: rgba(255, 255, 255, 0.05);
 }
 
-/* Search & Filter Bar */
-.search-filter-bar {
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.search-box {
-    flex: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.search-box svg {
-    position: absolute;
-    left: 12px;
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.search-box input {
-    width: 100%;
-    padding: 10px 10px 10px 35px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: white;
-    font-family: inherit;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-.search-box input:focus {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-#category-select {
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: white;
-    font-family: inherit;
-    outline: none;
-    cursor: pointer;
-}
-
-#category-select option {
-    background: #1e293b;
-    color: white;
-}
 /* Auto-next Progress Bar */
 .auto-next-container {
     width: 100%;
@@ -688,6 +634,43 @@ footer {
     letter-spacing: 2px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 20px;
+}
+
+/* Hierarchical TOC */
+.chapter-group {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.chapter-header {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 600;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.chapter-articles {
+    list-style: none;
+    padding-left: 0;
+}
+
+.chapter-articles .toc-item {
+    margin-left: 15px; /* Indent sub-items */
+    font-size: 0.95rem; /* Slightly smaller text for sub-items */
+    border-left: 2px solid rgba(255, 255, 255, 0.05); /* Visual guide */
+    border-radius: 0 12px 12px 0; /* Only round right side */
+}
+
+.chapter-articles .toc-item:hover {
+    border-left-color: var(--primary);
+}
+
+.chapter-articles .toc-item.active {
+    border-left-color: var(--accent);
 }
 
 .article-body {
